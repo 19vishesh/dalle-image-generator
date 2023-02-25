@@ -1,0 +1,23 @@
+input {
+    color: azure;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    margin-right: 1.5rem;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #22274e;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+img{
+    margin-top: 2rem;
+}
+
+.heading{
+    color: #fff;
+    /* text-shadow: -1px 6px 15px rgba(0, 0, 0, 0.6); */
+    text-shadow: -1px 6px 15px rgba(10, 10, 11, 0.74);
+}
