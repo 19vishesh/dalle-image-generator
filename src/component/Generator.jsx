@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './generator.css'
 import { Configuration, OpenAIApi } from 'openai'
+import openAiLogo from '../image/openAiLogo.svg'
+import fakeImage from '../image/fakeimage.svg'
 
 
 const configuration = new Configuration({
@@ -14,8 +16,13 @@ const openai = new OpenAIApi(configuration);
 function Generator() {
 
     const [userPrompt, setUserPrompt] = useState("");
+    const [imageSize, setImageSize] = useState("256x256");
     const [image, setImage] = useState("");
     const [isloading, setIsLoading] = useState(false);
+
+
+    const fakeImageUrl = "https://cdn-icons-png.flaticon.com/256/1160/1160358.png";
+    // console.log('first', imageSize)
 
 
 
@@ -25,7 +32,7 @@ function Generator() {
             const response = await openai.createImage({
                 prompt: userPrompt,
                 n: 1,
-                size: "512x512"
+                size: imageSize,
             });
             // console.log(response);
             setImage(response.data.data[0].url)
@@ -36,27 +43,49 @@ function Generator() {
         }
     }
 
+    useEffect(() => {
+        if (image === "") {
+            setImage(fakeImageUrl)
+        }
+    })
+
+
     return (
-        <>
-            <h1 className='heading'>Describe to Generate the Image</h1>
-            <div>
-                <input onChange={(e) => setUserPrompt(e.target.value)} type="text" placeholder='Enter text here' required />
-                <button onClick={fetchData}>Generate</button>
+        <div style={{overflow:'hidden', width:"100vw", height:"100vh", }}>
+            <div className='openAi' style={{ display: "flex", flexDirection: "row-reverse", marginTop: "1rem" }}>
+                <a href="https://platform.openai.com/docs/introduction" target="_blank"><img src={openAiLogo} alt="" style={{ width: "10rem", marginRight: "3rem" }} /></a>
             </div>
-            <div style={{ width: "100%", height: 512 }} className="imageDiv">
-                {
-                    isloading ?
-                        (
-                            <>
-                                <p>Loading...</p>
-                                <p>😊 Please wait until your image is ready.</p>
-                            </>)
-                        :
-                        <img src={image} alt="Ai-generated-image" />
-                }
+            <div className='content-box'>
+                <div className="left__box">
+                    <div className='main'>
+                        <h1 className='heading'>Describe to Generate the Image</h1>
+                        <div className='input__field'>
+                            <input onChange={(e) => setUserPrompt(e.target.value)} type="text" placeholder='Enter text here' required />
+
+                            <select name="imagesize" id="imagesize" onChange={(e) => setImageSize(e.target.value)}>
+                                <option value="256x256">small</option>
+                                <option value="512x512">medium</option>
+                            </select>
+                        </div>
+                        <button onClick={fetchData}>Generate</button>
+                    </div>
+
+                    <div style={{ width: "100%", height: 512 }} className="imageDiv">
+                        {
+                            isloading ?
+                                (
+                                    <div className='loadingText'>
+                                        <p>Loading...</p>
+                                        <p>😊 Please wait until your image is ready.</p>
+                                    </div>)
+                                :
+                                <img src={image} alt="Your image will shown here" />
+                        }
+                    </div>
+                </div>
             </div>
-        </>
+        </div>
     )
 }
 
-export default Generator
+export default Generator;
