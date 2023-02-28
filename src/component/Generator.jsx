@@ -51,11 +51,13 @@ function Generator() {
 
 
     return (
-        <div style={{overflow:'hidden', width:"100vw", height:"100vh", }}>
+        <div style={{ width: "100%", height: "100%", }}>
             <div className='openAi' style={{ display: "flex", flexDirection: "row-reverse", marginTop: "1rem" }}>
                 <a href="https://platform.openai.com/docs/introduction" target="_blank"><img src={openAiLogo} alt="" style={{ width: "10rem", marginRight: "3rem" }} /></a>
             </div>
+
             <div className='content-box'>
+
                 <div className="left__box">
                     <div className='main'>
                         <h1 className='heading'>Describe to Generate the Image</h1>
@@ -69,19 +71,19 @@ function Generator() {
                         </div>
                         <button onClick={fetchData}>Generate</button>
                     </div>
+                </div>
 
-                    <div style={{ width: "100%", height: 512 }} className="imageDiv">
-                        {
-                            isloading ?
-                                (
-                                    <div className='loadingText'>
-                                        <p>Loading...</p>
-                                        <p>😊 Please wait until your image is ready.</p>
-                                    </div>)
-                                :
-                                <img src={image} alt="Your image will shown here" />
-                        }
-                    </div>
+                <div style={{ width: "100%", }} className="imageDiv">
+                    {
+                        isloading ?
+                            (
+                                <div className='loadingText'>
+                                    <p>Loading...</p>
+                                    <p>😊 Please wait until your image is ready.</p>
+                                </div>)
+                            :
+                            <img src={image} alt="Your image will shown here" />
+                    }
                 </div>
             </div>
         </div>
