@@ -51,8 +51,8 @@ function Generator() {
 
 
     return (
-        <div style={{ width: "100%", height: "100%", }}>
-            <div className='openAi' style={{ display: "flex", flexDirection: "row-reverse", marginTop: "1rem" }}>
+        <div >
+            <div className='openAi'>
                 <a href="https://platform.openai.com/docs/introduction" target="_blank"><img src={openAiLogo} alt="" style={{ width: "10rem", marginRight: "3rem" }} /></a>
             </div>
 
@@ -73,7 +73,7 @@ function Generator() {
                     </div>
                 </div>
 
-                <div style={{ width: "100%", }} className="imageDiv">
+                <div className="imageDiv">
                     {
                         isloading ?
                             (

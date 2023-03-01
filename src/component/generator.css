@@ -3,6 +3,13 @@
     padding: 0;
 }
 
+.openAi {
+    display: flex;
+    flex-direction: flex-end;
+    margin-top: 1rem;
+    position: fixed;
+}
+
 .content-box {
     height: 100vh;
     width: 100%;
@@ -10,9 +17,9 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    overflow-x:auto ;
-    text-align: center;
-    border: 1px solid red;
+    /* overflow-x: auto;
+    text-align: center; */
+    /* border: 1px solid red; */
 }
 
 .left__box {
@@ -167,6 +174,5 @@ img {
 
     #imagesize {
         margin-left: 0;
-    } 
+    }
 }
-
