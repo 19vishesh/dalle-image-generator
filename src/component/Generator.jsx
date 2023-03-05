@@ -21,7 +21,7 @@ function Generator() {
     const [isloading, setIsLoading] = useState(false);
 
 
-    const fakeImageUrl = "https://cdn-icons-png.flaticon.com/256/1160/1160358.png";
+    const fakeImageUrl = "https://cdn-icons-png.flaticon.com/512/1160/1160358.png";
     // console.log('first', imageSize)
 
 
@@ -53,18 +53,21 @@ function Generator() {
     return (
         <div >
             <div className='openAi'>
-                <a href="https://platform.openai.com/docs/introduction" target="_blank"><img src={openAiLogo} alt="" style={{ width: "10rem", marginRight: "3rem" }} /></a>
+                <div className='logo'>
+                    <a href="https://platform.openai.com/docs/introduction" target="_blank"><img src={openAiLogo} alt="" style={{ width: "10rem", marginRight: "3rem" }} /></a>
+                </div>
+
             </div>
 
             <div className='content-box'>
 
                 <div className="left__box">
                     <div className='main'>
-                        <h1 className='heading'>Describe to Generate the Image</h1>
+                        <h2 className='heading'>Describe to Generate the Image</h2>
                         <div className='input__field'>
                             <input onChange={(e) => setUserPrompt(e.target.value)} type="text" placeholder='Enter text here' required />
 
-                            <select name="imagesize" id="imagesize" onChange={(e) => setImageSize(e.target.value)}>
+                            <select name="size" className="size" onChange={(e) => setImageSize(e.target.value)}>
                                 <option value="256x256">small</option>
                                 <option value="512x512">medium</option>
                             </select>
@@ -73,7 +76,7 @@ function Generator() {
                     </div>
                 </div>
 
-                <div className="imageDiv">
+                <div className="right-box" >
                     {
                         isloading ?
                             (

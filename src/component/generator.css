@@ -1,30 +1,38 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
 .openAi {
     display: flex;
-    flex-direction: flex-end;
-    margin-top: 1rem;
+    flex-direction: row-reverse;
+    width: 100%;
+    padding: 1rem;
     position: fixed;
+    background-color: white;
 }
 
 .content-box {
-    height: 100vh;
+    height: 90vh;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    padding-top: 4rem;
+    background-color: rgba(255, 0, 0, 0.402);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    ;
     /* overflow-x: auto;
     text-align: center; */
     /* border: 1px solid red; */
 }
 
 .left__box {
+    background-color: olivedrab;
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
     /* flex: 2 */
 }
 
@@ -36,7 +44,6 @@
     justify-content: center;
     align-items: center;
     /* margin-top: 50vh; */
-    margin-left: 3rem;
     flex-wrap: wrap;
 }
 
@@ -44,11 +51,13 @@
     color: #fff;
     text-shadow: -1px 6px 15px rgba(10, 10, 11, 0.74);
     margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 .input__field {
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 input {
@@ -57,7 +66,7 @@ input {
     border: 1px solid transparent;
     margin-bottom: 1.5rem;
     padding: 0.6em 1.2em;
-    font-size: 1em;
+    font-size: 16px;
     font-weight: 500;
     font-family: inherit;
     background-color: #141629;
@@ -74,6 +83,7 @@ button {
     font-weight: 500;
     font-family: inherit;
     background-color: #1a1a1a;
+    color: aliceblue;
     cursor: pointer;
     transition: border-color 0.25s;
 }
@@ -86,22 +96,25 @@ button:hover {
     color: #fff;
 }
 
-.imageDiv {
+.right-box {
+    background-color: salmon;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
     align-items: center;
-    margin: 2rem 0;
     text-align: center;
-    margin-bottom: 3rem;
 }
 
-img {
+.right-box>img {
+
+    object-fit: contain;
+    width: 400px;
+    height: 400px;
     /* margin-top: 2rem; */
     border-radius: 8px;
 }
 
-#imagesize {
+.size {
     border-radius: 8px;
     border: 1px solid transparent;
     margin-left: 1rem;
@@ -113,66 +126,28 @@ img {
     color: #fff;
 }
 
-@media screen and (max-width: 600px) {
-    .content-box {
-        overflow: scroll;
-        display: flex;
-        /* height: 100vh; */
-        flex-wrap: wrap;
-        flex-direction: column;
+@media screen and (max-width: 500px) {
+    .size{
+        margin-left: 0;
     }
-
-    .main {
-        margin-left: 0.5rem;
-    }
-
     .input__field {
-        display: flex;
-        flex-wrap: wrap;
         flex-direction: column;
-        justify-content: center;
+        background-color: green;
         align-items: center;
     }
 
     input {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    #imagesize {
-        margin-left: 0;
-    }
-}
-
-@media screen and (max-width: 420px) {
-    .content-box {
-        overflow: scroll;
-        display: flex;
-        /* height: 100vh; */
-        flex-wrap: wrap;
-        flex-direction: column;
-        overflow: scroll;
-    }
-
-    .left__box {
-        margin-left: 0;
-        width: 100vw;
-    }
-
-    .input__field {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    input {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    #imagesize {
-        margin-left: 0;
+        color: azure;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        margin-bottom: 1.5rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 16px;
+        font-weight: 500;
+        font-family: inherit;
+        background-color: #141629;
+        cursor: pointer;
+        transition: border-color 0.25s;
+        width: 16rem;
     }
 }
