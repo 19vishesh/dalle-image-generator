@@ -63,7 +63,7 @@ function Generator() {
 
                 <div className="left__box">
                     <div className='main'>
-                        <h2 className='heading'>Describe to Generate the Image</h2>
+                        <h1 className='heading'>Describe to Generate the Image</h1>
                         <div className='input__field'>
                             <input onChange={(e) => setUserPrompt(e.target.value)} type="text" placeholder='Enter text here' required />
 
